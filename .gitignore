@@ -122,4 +122,4 @@ build/
 ######################
 # protect my secrets
 ######################
-ci/params-secret.yml
+ci/params-secret*.yml
