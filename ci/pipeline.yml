@@ -1,0 +1,28 @@
+---
+jobs:  
+- name: build-docker-image
+  public: true
+  serial: true
+  plan:
+  - get: git-repo
+    trigger: true
+  - put: docker-image
+    params:
+      build: git-repo/ci
+
+resources:  
+- name: git-repo
+  type: git
+  source:
+    uri: {{git-repo}}
+    branch: master
+    username: {{github-username}}
+    token: {{github-token}}
+
+- name: docker-image
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: {{docker-create-concourse-go-image}}

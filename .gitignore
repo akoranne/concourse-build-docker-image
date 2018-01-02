@@ -118,6 +118,8 @@ Desktop.ini
 .gradle/
 .idea/
 build/
-ci/assets/
-ci/credentials-ecslab.yml
-ci/scripts/
+
+######################
+# protect my secrets
+######################
+ci/params-secret.yml
